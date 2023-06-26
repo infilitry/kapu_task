@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  nestapp:
+    container_name: kapuhms
+    image: infilitry/kapuhms:1.0.0
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_TYPE=postgres
+      - PG_USER=test
+      - PG_PASSWORD=testing123
+      - PG_DB=kapu_hms
+      - PG_PORT=5432
+      - PG_HOST=db
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:12
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: testing123
+      POSTGRES_DB: kapu_hms
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata: {}
