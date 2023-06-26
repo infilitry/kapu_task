@@ -23,13 +23,19 @@ export class Appointment {
      * the patient will always use the same doctor. He/she may choose to go to a diffrent health facility.
      */
 
+    @Column()
     doctorid : number;
 
+    @Column()
     patientid : number;
+
+    @Column({type: 'date'})
+    appointementdate : Date;
 
     /**
      * reason for the appointment. ideally this would be tied to a Health Medical Record, detailing the patients medical history
      * Health Medical Record management is a whole different beast that is currently outside the scope of this task.
      */
+    @Column()
     description : string;
 }
