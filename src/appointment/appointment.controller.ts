@@ -48,4 +48,24 @@ export class AppointmentController {
     }
     return this.appointmentService.remove(id);
   }
+/**
+ * 
+ * @param id -> PatientID
+ * @returns 
+ */
+  @Get('patient/:id')
+  async getPatientsAppointmentHistory(@Param('id') id: number) : Promise<Appointment[]> {
+    return this.appointmentService.retrievePatientAppointmentHistory(id);
+  }
+
+
+  /**
+   * 
+   * @param id -> DoctorID
+   * @returns 
+   */
+  @Get('doctor/:id')
+  async getDoctorsAppointmentHistory(@Param('id') id: number) : Promise<Appointment[]> {
+    return this.appointmentService.retrieveDoctorAppointmentHistory(id);
+  }
 }

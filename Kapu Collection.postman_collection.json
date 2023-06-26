@@ -167,6 +167,24 @@
 				"url": "localhost:3000/v1/hms/appointment/3"
 			},
 			"response": []
+		},
+		{
+			"name": "localhost:3000/v1/hms/appointment/doctor/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3000/v1/hms/appointment/doctor/1"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/v1/hms/appointment/patient/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3000/v1/hms/appointment/patient/2"
+			},
+			"response": []
 		}
 	]
 }

@@ -52,4 +52,29 @@ export class AppointmentService {
   async remove(id: number) : Promise<void> {
     await this.appointmentRepository.delete(id);
   }
+
+  /**
+   * 
+   * @param id - patient id
+   * @returns 
+   */
+  async retrievePatientAppointmentHistory(id: number) : Promise<Appointment[]> {
+
+    return await this.appointmentRepository.createQueryBuilder("appointment")
+    .where("appointment.patientid = :id", { id }).getMany()
+
+  }
+
+
+  /**
+   * 
+   * @param id -> Doctor id
+   * @returns 
+   */
+  async retrieveDoctorAppointmentHistory(id: number) : Promise<Appointment[]> {
+
+    return await this.appointmentRepository.createQueryBuilder("appointment")
+    .where("appointment.doctorid = :id", { id }).getMany()
+
+  }
 }
